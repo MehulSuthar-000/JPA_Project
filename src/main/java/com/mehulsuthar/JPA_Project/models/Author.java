@@ -5,10 +5,13 @@ import lombok.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 //@Table(
 //        name = "AUTHOR_TBL"
@@ -36,10 +39,10 @@ public class Author {
 //    )
     private Integer id;
 
-    @Column(
-            name = "f_name",
-            length = 35
-    )
+//    @Column(
+//            name = "f_name",
+//            length = 35
+//    )
     private String firstName;
 
     private String lastName;
@@ -52,14 +55,6 @@ public class Author {
 
     private int age;
 
-    @Column(
-            updatable = false,
-            nullable = false
-    )
-    private LocalDateTime createdAt;
-
-    @Column(
-            insertable = false
-    )
-    private LocalDateTime lastModified;
+    @ManyToMany(mappedBy = "authors")
+    private List<Course> courses;
 }
