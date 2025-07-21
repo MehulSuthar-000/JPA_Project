@@ -2,24 +2,21 @@ package com.mehulsuthar.JPA_Project.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.cglib.core.Local;
-
-import java.time.LocalDateTime;
+import lombok.experimental.SuperBuilder;
 import java.util.List;
 
-
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 //@Table(
 //        name = "AUTHOR_TBL"
 //)
-public class Author {
+public class Author extends BaseEntity{
 
-    @Id
-    @GeneratedValue
+
 //            (
 //            strategy = GenerationType.TABLE,
 //            generator = "author_id_gen"
@@ -37,7 +34,7 @@ public class Author {
 //            valueColumnName = "id_value",
 //            allocationSize = 22
 //    )
-    private Integer id;
+
 
 //    @Column(
 //            name = "f_name",
